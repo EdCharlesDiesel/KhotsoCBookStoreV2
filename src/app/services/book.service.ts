@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { shareReplay, map } from 'rxjs/operators';
 import { Book } from '../models/book';
 import { Categories } from '../models/catergories';
@@ -11,9 +12,12 @@ export class BookService {
 
   baseURL = 'https://localhost:5000/api/book/';
 
-  categories$ = this.http.get<Categories[]>(this.baseURL + 'GetCategoriesList').pipe(shareReplay(1));
 
   constructor(private http: HttpClient) { }
+
+  categories$ = (): Observable<any> => {
+    return this.http.get<Categories[]>(this.baseURL + 'GetCategoriesList').pipe(shareReplay(1));
+  }
 
   books$ = this.getAllBooks().pipe(shareReplay(1));
 

@@ -1,3 +1,4 @@
+import { BookService } from 'src/app/services/book.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -32,7 +33,9 @@ import { PriceFilterComponent } from './components/price-filter/price-filter.com
     BrowserAnimationsModule,
     NgMaterialModule,
   ],
-  providers: [],
+  providers: [
+    BookService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,15 +21,15 @@ export class BookFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchCategories();
+   // this.fetchCategories();
   }
 
-  fetchCategories(): any {
-    this.categories$ = this.bookService.categories$
-      .pipe(
-        catchError(error => {
-          console.log('Error ocurred while fetching category List : ', error);
-          return EMPTY;
-        }));
-  }
+  // fetchCategories(): any {
+  //   this.categories$ = this.bookService.categories$
+  //     .pipe(
+  //       catchError(error => {
+  //         console.log('Error ocurred while fetching category List : ', error);
+  //         return EMPTY;
+  //       }));
+  // }
 }
